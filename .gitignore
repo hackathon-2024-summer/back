@@ -1,0 +1,8 @@
+.env
+*.pyc
+*.mako
+README
+/apis/alembic/versions/*
+alembic.ini
+__pycache__
+.coverage
