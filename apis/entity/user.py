@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String
-from orms.base import Base
+from entity.base import Base
 import uuid
 
 
