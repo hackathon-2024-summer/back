@@ -33,7 +33,7 @@ COPY requirements.txt /app/
 RUN pip install --upgrade pip && pip install --upgrade setuptools && pip install python-dotenv
 RUN pip install -r requirements.txt
 
-ENV PATH="/home/appuser/devcon/apis:${PATH}"
+ENV PATH="/home/appuser/back/apis:${PATH}"
 
 # localhostでid $whoamiを実行しuidとgidの数値を事前に確認し.envファイルに転機すること。
 # localhostのユーザーと同一のuid・gidのユーザーを作成。
@@ -48,8 +48,8 @@ RUN if ! grep -q ":x:$MY_GID:" /etc/group; then groupadd -g $MY_GID appgroup; fi
 # パスワード無しでroot権限をappuserにも付与する。
 RUN usermod -aG sudo appuser
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-RUN mkdir /home/appuser/devcon && chown appuser:appgroup /home/appuser/devcon
-WORKDIR /home/appuser/devcon
+RUN mkdir /home/appuser/back && chown appuser:appgroup /home/appuser/back
+WORKDIR /home/appuser/back
 
 # docker環境構築時などサーバー以外の常駐プロセスを起動させる。
 # docker環境ができればコメントアウトする
