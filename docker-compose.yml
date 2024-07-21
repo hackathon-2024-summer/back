@@ -7,7 +7,8 @@ services:
         - MY_GID=${MY_GID}
         - PORT_FAST=${PORT_FAST}
     volumes:
-      - .:/home/appuser/devcon
+      - ..:/home/appuser
+      - .:/home/appuser/back
     env_file:
       - .env
     networks:
@@ -16,7 +17,7 @@ services:
       - ${PORT_FAST}:${PORT_FAST}
     # expose:
     #   - ${PORT_FAST}
-    command: ["/bin/sh", "-c", "/home/appuser/devcon/build.sh"]
+    command: ["/bin/sh", "-c", "/home/appuser/back/build.sh"]
   mysql_fast:
     build:
       context: ./mysql

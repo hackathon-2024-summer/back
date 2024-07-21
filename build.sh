@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./.env
 # start uvicorn server
-export PYTHONPATH=/home/appuser/devcon/apis:$PYTHONPATH
+export PYTHONPATH=/home/appuser/back/apis:$PYTHONPATH
 
 while :; do
     echo "Checking if MySQL is up on port ${PORT_MYSQL_FAST}"
@@ -36,7 +36,7 @@ DATABASE_URL="mysql+pymysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${MYSQL_HOST_FAST}
 
 # 生成されたalembic.iniをsedコマンドで編集。sqlalchemyが参照するpathを追記。
 # docker-compose.ymlのVOLUMESでコンテナ内外が繋がるので、ローカルにできたalembic.iniに接続URLが残るので、間違ってアップロードしないこと。
-sed -i "s|sqlalchemy.url = .*|sqlalchemy.url = ${DATABASE_URL}|" /home/appuser/devcon/alembic.ini
+sed -i "s|sqlalchemy.url = .*|sqlalchemy.url = ${DATABASE_URL}|" /home/appuser/back/alembic.ini
 
 # env.pyの初期ファイルはsqlalchemyが参照するBaseクラスのpathが明記されている。それをapisフォルダにコピー。
 # Baseクラスがあるフォルダに__init__.pyを置くこと。Baseクラスを継承したクラスを全てデータベースに構築するため。
