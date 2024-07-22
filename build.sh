@@ -1,7 +1,5 @@
 #!/bin/bash
 source ./.env
-# start uvicorn server
-export PYTHONPATH=/home/appuser/back/apis:$PYTHONPATH
 
 while :; do
     echo "Checking if MySQL is up on port ${PORT_MYSQL_FAST}"
