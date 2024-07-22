@@ -1,0 +1,6 @@
+{
+    "python.defaultInterpreterPath": "/usr/local/bin/python",
+    "python.analysis.extraPaths": ["/home/appuser/back/apis"],
+    "python.autoComplete.extraPaths": ["/home/appuser/back/apis"],
+    "python.analysis.typeCheckingMode": "basic"
+}

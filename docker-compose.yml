@@ -11,6 +11,8 @@ services:
       - .:/home/appuser/back
     env_file:
       - .env
+    environment:
+      - PYTHONPATH=/home/appuser/back/apis
     networks:
       - hackathon_summer_network
     ports:
